@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Dirección</h1>
+
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ direccion.id }}</td>
+            </tr>
+            <tr>
+                <th>Calle</th>
+                <td>{{ direccion.calle }}</td>
+            </tr>
+            <tr>
+                <th>Colonia</th>
+                <td>{{ direccion.colonia }}</td>
+            </tr>
+            <tr>
+                <th>Delegación</th>
+                <td>{{ direccion.delegacion }}</td>
+            </tr>
+            <tr>
+                <th>Número</th>
+                <td>{{ direccion.numero }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('direccion_index') }}">Regresar a la lista de direcciones</a>
+        </li>
+        <li>
+            <a href="{{ path('direccion_edit', { 'id': direccion.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

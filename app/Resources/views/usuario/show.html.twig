@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Usuario</h1>
+
+    <table border="1">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ usuario.id }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ usuario.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Apellido Paterno</th>
+                <td>{{ usuario.apePaterno }}</td>
+            </tr>
+            <tr>
+                <th>Apellido Materno</th>
+                <td>{{ usuario.apeMaterno }}</td>
+            </tr>
+            <tr>
+                <th>Edad</th>
+                <td>{{ usuario.edad }}</td>
+            </tr>
+            <tr>
+                <th>Dirección - Calle</th>
+                <td>{{ usuario.direccion.calle }}</td>
+            </tr>
+            <tr>
+                <th>Dirección - Colonia</th>
+                <td>{{ usuario.direccion.colonia }}</td>
+            </tr>
+            <tr>
+                <th>Delegación - Delegación</th>
+                <td>{{ usuario.direccion.delegacion }}</td>
+            </tr>
+            <tr>
+                <th>Dirección - Número</th>
+                <td>{{ usuario.direccion.numero }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('usuario_index') }}">Regresar a lista de usuarios</a>
+        </li>
+        <li>
+            <a href="{{ path('usuario_edit', { 'id': usuario.id }) }}">Editar</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Eliminar">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
